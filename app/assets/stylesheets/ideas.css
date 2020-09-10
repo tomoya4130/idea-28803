@@ -1,0 +1,110 @@
+* {
+  color: #333333;
+  line-height: 1.5;
+}
+
+/* headerのcss */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+header {
+  height: 80px;
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  height: 100%;
+  max-width: 980px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+h1 {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.header-nav-list {
+  display: flex;
+}
+
+.header-nav-list-item {
+  padding: 0 5px;
+}
+/* headerのcss */
+
+.mv {
+  height: 460px;
+  background-image: url(../images/IMG_1165.jpeg);
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.mv h2 {
+  color: #ffffff;
+  font-size: 41px;
+  font-weight: bold;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+  line-height: 2;
+}
+
+.list-inner {
+  max-width: 980px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 77px 20px 48px;
+}
+
+.list-ttl {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 73px;
+  text-align: center;
+}
+
+.list-card-wapper {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 80px;
+}
+
+.list-card {
+  width: 32%;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+}
+
+.card-info {
+  padding: 12px;
+}
+
+.card-info h3 {
+  font-weight: bold;
+}
+
+.btn {
+  display: block;
+  border-radius: 5px;
+  text-align: center;
+  width: 250px;
+  padding: 15px 0;
+  color: #ffffff;
+  background-color: #BA0202;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+  font-size: 18px;
+  font-weight: bold;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.btn:hover {
+  opacity: 0.8;
+}
