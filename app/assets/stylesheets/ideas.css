@@ -34,6 +34,7 @@ h1 {
 }
 
 .header-nav-list-item {
+  text-decoration: none;
   padding: 0 5px;
 }
 /* headerのcss */
@@ -84,10 +85,6 @@ h1 {
 
 .card-info {
   padding: 12px;
-}
-
-.card-info h3 {
-  font-weight: bold;
 }
 
 .btn {
