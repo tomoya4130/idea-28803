@@ -1,0 +1,114 @@
+<header>
+  <div class="header-inner">
+    <h1>アプリ名</h1>
+    <nav class="header-nav">
+      <ul class="header-nav-list">
+        <li><%= link_to '投稿', new_idea_path, class: "header-nav-list-item" %></li>
+        <li><%= link_to 'ログイン', "#", class: "header-nav-list-item" %></li>
+        <li><%= link_to '新規登録', "#", class: "header-nav-list-item" %></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="mv">
+  <h2>自分の知識を<br>共有しよう！</h2>
+</div>
+
+<% if @ideas == nil %>
+  <section class="lists">
+    <div class="list-inner">
+      <h2 class="list-ttl">
+      ランキング
+      </h2>
+      <div class="list-card-wapper">
+        <% @ranks.each do |rank| %>
+          <article class="list-card">
+            <%= ranks.image %>
+            <div class="card-info">
+              <%= ranks.title %>
+            </div>
+          </article>
+        <% end %>
+      </div>
+      <a href="#" class="btn">全て表示する</a>
+    </div>
+  </section>
+
+  <section>
+    <div class="list-inner">
+      <h2 class="list-ttl">
+      新着
+      </h2>
+      <div class="list-card-wapper">
+        <article class="list-card">
+          <% @news.each do |new| %>
+            <%= news.image %>
+            <div class="card-info">
+              <%= news.title %>
+            </div>
+          <% end %>
+        </article>
+      </div>
+      <a href="#" class="btn">全て表示する</a>
+    </div>
+  </section>
+<% else %>
+  <section>
+    <div class="list-inner">
+      <h2 class="list-ttl">
+      ランキング
+      </h2>
+      <div class="list-card-wapper">
+        <article class="list-card">
+          <%= image_tag "IMG_1170.jpeg", class:"list-pict" %>
+          <div class="card-info">
+            <h3>題名</h3>
+          </div>
+        </article>
+        <article class="list-card">
+          <%= image_tag "IMG_1170.jpeg", class:"list-pict" %>
+          <div class="card-info">
+            <h3>題名</h3>
+          </div>
+        </article>
+        <article class="list-card">
+          <%= image_tag "IMG_1170.jpeg", class:"list-pict" %>
+          <div class="card-info">
+            <h3>題名</h3>
+          </div>
+        </article>
+      </div>
+      <a href="#" class="btn">全て表示する</a>
+    </div>
+  </section>
+
+  <section>
+    <div class="list-inner">
+      <h2 class="list-ttl">
+      新着
+      </h2>
+      <div class="list-card-wapper">
+        <article class="list-card">
+          <%= image_tag "IMG_1170.jpeg", class:"list-pict" %>
+          <div class="card-info">
+            <h3>題名</h3>
+          </div>
+        </article>
+        <article class="list-card">
+          <%= image_tag "IMG_1170.jpeg", class:"list-pict" %>
+          <div class="card-info">
+            <h3>題名</h3>
+          </div>
+        </article>
+        <article class="list-card">
+          <%= image_tag "IMG_1170.jpeg", class:"list-pict" %>
+          <div class="card-info">
+            <h3>題名</h3>
+          </div>
+        </article>
+      </div>
+      <a href="#" class="btn">全て表示する</a>
+    </div>
+  </section>
+<% end %>
