@@ -82,6 +82,12 @@ h1 {
 .list-card {
   width: 32%;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+  position: relative;
+}
+
+.list-pict {
+  width: 33vh;
+  height: 33vh;
 }
 
 .card-info {

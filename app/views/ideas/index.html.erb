@@ -29,7 +29,7 @@
       <div class="list-card-wapper">
         <% @ranks.each do |rank| %>
           <article class="list-card">
-            <%= ranks.image %>
+            <%= image_tag ranks.image, class: "list-pict" if item.image.attached? %>
             <div class="card-info">
               <%= ranks.title %>
             </div>
@@ -48,7 +48,7 @@
       <div class="list-card-wapper">
         <article class="list-card">
           <% @news.each do |new| %>
-            <%= news.image %>
+            <%= image_tag news.image, class: "list-pict" if item.image.attached? %>
             <div class="card-info">
               <%= news.title %>
             </div>

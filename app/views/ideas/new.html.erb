@@ -1,1 +1,8 @@
-<div class="contents row">
+<div class="content row">
+  <div class="container">
+    <h3>投稿する</h3>
+    <%= from_with model: @idea, url: new_idea, class="post", local: true do |form|%>
+      <%= f.text_field : %>
+    <% end %>
+  </div>
+</div>
