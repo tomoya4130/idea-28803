@@ -1,10 +1,12 @@
 <div class="content row">
   <div class="container">
     <h3>投稿する</h3>
-    <%= from_with model: @idea, url: new_idea, class="post", local: true do |form|%>
-      <%= f.text_field :image %>
-      <%= f.text_field :title %>
-      <%= f.text_area :content %>
+    <%= form_with model: @idea, local: true do |f| %>
+      <%= f.collection_select(:genre_id, Genre.all, :id, :name, {}, {class:"genre-select"}) %>
+      <%= f.text_field :image, id: "idea-image" %>
+      <%= f.text_field :title, class: "idea-title", id: "idea-title", placeholder: "タイトル" %>
+      <%= f.text_area :content, class: "idea-content", id: "idea-content", placeholder: "コンテンツ" %>
+      <%= f.submit "投稿する", class: "btn" %>
     <% end %>
   </div>
 </div>
