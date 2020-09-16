@@ -1,4 +1,5 @@
 class IdeasController < ApplicationController
+  before_action :login_check, only: :new
   def index
     @ideas = Idea.all
     @ranks = Idea.all.limit(3)
@@ -26,5 +27,13 @@ class IdeasController < ApplicationController
 
   def message_params
     params.require(:idea).permit(:image, :title).merge(user_id: current_user.id)
+  end
+  
+  # ログインしていない場合登録画面に遷移する
+  def login_check
+    unless user_signed_in?
+      flash[:alert] = 'ログインしてください'
+      redirect_to new_user_session_path
+    end
   end
 end
