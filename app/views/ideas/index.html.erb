@@ -20,7 +20,7 @@
   <h2>自分の知識を<br>共有しよう！</h2>
 </div>
 
-<% if @ranks != nil %>
+<% if @ranks.length > 0 %>
   <section class="lists">
     <div class="list-inner">
       <h2 class="list-ttl">
@@ -29,10 +29,12 @@
       <div class="list-card-wapper">
           <% @ranks.each do |rank| %>
             <article class="list-card">
-              <%= image_tag rank.image, class: "list-pict" if rank.image.attached? %>
-              <div class="card-info">
-                <%= rank.title %>
-              </div>
+            <%= link_to (idea_path(rank.id)) do %>
+                <%= image_tag rank.image, class: "list-pict" if rank.image.attached? %>
+                <div class="card-info">
+                  <%= rank.title %>
+                </div>
+            <% end %>
             </article>
           <% end %>
       </div>
@@ -70,7 +72,7 @@
   </section>
 <% end %>
 
-<% if @novelties != nil %>
+<% if @novelties.length > 0 %>
   <section class="lists">
     <div class="list-inner">
       <h2 class="list-ttl">
