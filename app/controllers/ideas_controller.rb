@@ -1,8 +1,8 @@
 class IdeasController < ApplicationController
   def index
     @ideas = Idea.all
-    @ranks = Idea.all
-    @news = Idea.all
+    @ranks = Idea.all.limit(3)
+    @novelties = Idea.order('created_at DESC').limit(3)
   end
 
   def new

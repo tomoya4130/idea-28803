@@ -27,14 +27,14 @@
       ランキング
       </h2>
       <div class="list-card-wapper">
-        <% @ranks.each do |rank| %>
-          <article class="list-card">
-            <%= image_tag rank.image, class: "list-pict" if rank.image.attached? %>
-            <div class="card-info">
-              <%= rank.title %>
-            </div>
-          </article>
-        <% end %>
+          <% @ranks.each do |rank| %>
+            <article class="list-card">
+              <%= image_tag rank.image, class: "list-pict" if rank.image.attached? %>
+              <div class="card-info">
+                <%= rank.title %>
+              </div>
+            </article>
+          <% end %>
       </div>
       <a href="#" class="btn">全て表示する</a>
     </div>
@@ -70,21 +70,21 @@
   </section>
 <% end %>
 
-<% if @news != nil %>
-  <section>
+<% if @novelties != nil %>
+  <section class="lists">
     <div class="list-inner">
       <h2 class="list-ttl">
       新着
       </h2>
       <div class="list-card-wapper">
-        <article class="list-card">
-          <% @news.each do |new| %>
-            <%= image_tag new.image, class: "list-pict" if new.image.attached? %>
+        <% @novelties.each do |novelty| %>
+          <article class="list-card">
+            <%= image_tag novelty.image, class: "list-pict" if novelty.image.attached? %>
             <div class="card-info">
-              <%= new.title %>
+              <%= novelty.title %>
             </div>
-          <% end %>
-        </article>
+          </article>
+        <% end %>
       </div>
       <a href="#" class="btn">全て表示する</a>
     </div>
