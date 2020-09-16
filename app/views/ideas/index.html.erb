@@ -20,7 +20,7 @@
   <h2>自分の知識を<br>共有しよう！</h2>
 </div>
 
-<% if @ideas == nil %>
+<% if @ranks != nil %>
   <section class="lists">
     <div class="list-inner">
       <h2 class="list-ttl">
@@ -29,31 +29,12 @@
       <div class="list-card-wapper">
         <% @ranks.each do |rank| %>
           <article class="list-card">
-            <%= image_tag ranks.image, class: "list-pict" if item.image.attached? %>
+            <%= image_tag rank.image, class: "list-pict" if rank.image.attached? %>
             <div class="card-info">
-              <%= ranks.title %>
+              <%= rank.title %>
             </div>
           </article>
         <% end %>
-      </div>
-      <a href="#" class="btn">全て表示する</a>
-    </div>
-  </section>
-
-  <section>
-    <div class="list-inner">
-      <h2 class="list-ttl">
-      新着
-      </h2>
-      <div class="list-card-wapper">
-        <article class="list-card">
-          <% @news.each do |new| %>
-            <%= image_tag news.image, class: "list-pict" if item.image.attached? %>
-            <div class="card-info">
-              <%= news.title %>
-            </div>
-          <% end %>
-        </article>
       </div>
       <a href="#" class="btn">全て表示する</a>
     </div>
@@ -87,7 +68,28 @@
       <a href="#" class="btn">全て表示する</a>
     </div>
   </section>
+<% end %>
 
+<% if @news != nil %>
+  <section>
+    <div class="list-inner">
+      <h2 class="list-ttl">
+      新着
+      </h2>
+      <div class="list-card-wapper">
+        <article class="list-card">
+          <% @news.each do |new| %>
+            <%= image_tag new.image, class: "list-pict" if new.image.attached? %>
+            <div class="card-info">
+              <%= new.title %>
+            </div>
+          <% end %>
+        </article>
+      </div>
+      <a href="#" class="btn">全て表示する</a>
+    </div>
+  </section>
+<% else %>
   <section>
     <div class="list-inner">
       <h2 class="list-ttl">
