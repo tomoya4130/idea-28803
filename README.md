@@ -26,6 +26,7 @@
 | genre_id               | integer    | null: false                    |
 | title                  | string     | null: false                    |
 | content                | text       | null: false                    |
+| likes_count            | integer    |                                |
 | user                   | references | null: false, foreign_key: true |
 
 ### Association
