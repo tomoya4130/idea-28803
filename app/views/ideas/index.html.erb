@@ -81,10 +81,12 @@
       <div class="list-card-wapper">
         <% @novelties.each do |novelty| %>
           <article class="list-card">
+          <%= link_to (idea_path(novelty.id)) do %>
             <%= image_tag novelty.image, class: "list-pict" if novelty.image.attached? %>
             <div class="card-info">
               <%= novelty.title %>
             </div>
+          <% end %>
           </article>
         <% end %>
       </div>
