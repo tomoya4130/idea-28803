@@ -5,7 +5,7 @@
       <ul class="header-nav-list">
         <% if user_signed_in? && @idea.user_id == current_user.id %>
           <li><%= link_to '編集', edit_idea_path, class: "header-nav-list-item" %></li>
-          <li><%= link_to '削除', idea_path, method: :delete, class: "header-nav-list-item" %></li>
+          <li><%= link_to '削除', idea_path, method: :delete, class: "header-nav-list-item", data: { confirm: '削除しますか？' } %></li>
         <% end %>
       </ul>
     </nav>
