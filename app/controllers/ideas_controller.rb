@@ -1,7 +1,6 @@
 class IdeasController < ApplicationController
   before_action :login_check, only: :new
   def index
-    @ideas = Idea.all
     @ranks = Idea.all.limit(3)
     @novelties = Idea.order('created_at DESC').limit(3)
   end
@@ -17,6 +16,10 @@ class IdeasController < ApplicationController
     else
       render :new
     end
+  end
+
+  def show
+    @idea = Idea.find(params[:id])
   end
 
   private
