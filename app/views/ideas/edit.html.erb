@@ -1,0 +1,58 @@
+
+<%= form_with model: @idea, class: "ideas-main", local: true do |f| %> 
+    <div class="ideas-sell-main">
+      <h2 class="ideas-sell-title">投稿する</h2>
+      
+      <%# エラーメッセージの表示%>
+      <%= render 'shared/error_messages', model: f.object %>
+
+      <%# 画像投稿 %>
+      <div class="img-upload">
+        <div class="weight-bold-text">
+          画像
+        </div>
+        <div class="click-upload">
+          <p>
+            クリックしてファイルをアップロード
+          </p>
+          <%= f.file_field :image, id:"idea-image" %>
+        </div>
+      </div>
+      <%# /画像投稿 %>
+      <%# タイトルと説明 %>
+      <div class="new-ideas">
+        <div class="weight-bold-text">
+          タイトル
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_area :title, class:"ideas-text", id:"idea-title", placeholder:"タイトル", maxlength:"40" %>
+        <div class="ideas-explain">
+          <div class="weight-bold-text">
+            内容
+            <span class="indispensable">必須</span>
+          </div>
+          <%= f.text_area :content, class:"ideas-text", id:"idea-info", placeholder:"本文(1000文字以内)" ,rows:"7" ,maxlength:"1000" %>
+        </div>
+      </div>
+      <%# /タイトルと説明 %>
+
+      <%# ジャンル %>
+      <div class="ideas-detail">
+        <div class="form">
+          <div class="weight-bold-text">
+            ジャンル
+            <span class="indispensable">必須</span>
+          </div>
+          <%= f.collection_select(:genre_id, Genre.all, :id, :name, {}, {class:"genre-select"}) %>
+        </div>
+      </div>
+      <%# /ジャンル %>
+
+      <%# 下部ボタン %>
+      <div class="sell-btn-contents">
+        <%= f.submit "更新" ,class:"sell-btn" %>
+        <%=link_to 'もどる', root_path, class:"back-btn" %>
+      </div>
+      <%# /下部ボタン %>
+    </div>
+<% end %>

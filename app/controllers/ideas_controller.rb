@@ -29,7 +29,7 @@ class IdeasController < ApplicationController
   def update
     @idea = Idea.find(params[:id])
     if @idea.update(idea_params)
-      redirect_to idea_path
+      redirect_to ideas_path
     else
       render :edit
     end
