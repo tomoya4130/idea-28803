@@ -25,5 +25,6 @@
     <div class="idea-content">
       <%= @idea.content %>
     </div>
+    <%= render 'shared/like', locals: { idea: @idea } %>
   </div>
 </div>
