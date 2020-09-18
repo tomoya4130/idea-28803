@@ -20,6 +20,7 @@ class IdeasController < ApplicationController
 
   def show
     @idea = Idea.find(params[:id])
+    @likes_count = Like.where(idea_id: @idea.id).count
   end
 
   def edit

@@ -1,14 +1,13 @@
 class LikesController < ApplicationController
   def create
-    @like = Like.create(user_id: current_user.id, idea_id: params[:idea_id])
-    @likes = Like.where(idea_id: params[:idea_id])
-    @ideas = Idea.all
+    @like = Like.new(user_id: current_user.id, idea_id: params[:idea_id])
+    @like.save
+    redirect_to("/ideas/#{params[:idea_id]}")
   end
 
   def destroy
-    like = Like.find_by(user_id: current_user.id, idea_id: params[:idea_id])
-    like.destroy
-    @likes = Like.where(idea_id: params[:idea_id])
-    @ideas = Tweet.all
+    @like = Like.find_by(user_id: current_user.id, idea_id: params[:idea_id])
+    @like.destroy
+    redirect_to("/ideas/#{params[:idea_id]}")
   end
 end

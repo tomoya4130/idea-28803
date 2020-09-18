@@ -1,22 +1,10 @@
-<% if user_signed_in? %>
-  <% if @idea.like_user(current_user.id) %>
-    <%= button_to idea_like_path(like, idea_id: idea.id), method: :delete, id: "like-button", remote: true do %>
-      <%#= image_tag("icon_red_heart.svg") %>
-      <span>
-        <%= @idea.likes_count %>
-      </span>
+<% if Like.find_by(user_id: current_user.id, idea_id: @idea.id) %>
+    <%= link_to (idea_like_path(@idea.id)), {method: "delete"} do %>
+      <span class="fa fa-heart like-btn-unlike"></span>
     <% end %>
-  <% else %>
-    <%= button_to idea_likes_path(@idea), id: "like-button", remote: true do %>
-      <%#= image_tag("icon_heart.svg") %>
-      <span>
-        <%= @idea.likes_count %>
-      </span>
-    <% end %>
-  <% end %>
 <% else %>
-  <%#= image_tag("icon_heart.svg") %>
-    <span>
-      <%= @idea.likes_count %>
-    </span>
+    <%= link_to (idea_likes_path(@idea.id)), {method: "post"} do %>
+      <span class="fa fa-heart like-btn"></span>
+    <% end %>
 <% end %>
+<%= @likes_count %>
