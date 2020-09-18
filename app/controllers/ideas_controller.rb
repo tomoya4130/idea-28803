@@ -1,7 +1,7 @@
 class IdeasController < ApplicationController
   before_action :login_check, only: :new
   def index
-    @ranks = Idea.all.limit(3)
+    @ranks = Idea.order('likes_count DESC').limit(3)
     @novelties = Idea.order('created_at DESC').limit(3)
   end
 
