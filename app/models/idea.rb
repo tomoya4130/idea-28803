@@ -2,6 +2,13 @@ class Idea < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
 
   belongs_to :user
+  has_many :likes, dependent: :destroy
+  
+  #いいねしているかの確認
+  def like_user(user_id)
+   likes.find_by(user_id: user_id)
+  end
+  
   has_one_attached :image
 
   belongs_to_active_hash :genre

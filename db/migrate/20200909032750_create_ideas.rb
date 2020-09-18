@@ -4,6 +4,7 @@ class CreateIdeas < ActiveRecord::Migration[6.0]
       t.integer    :genre_id, null: false
       t.string     :title,    null: false
       t.text       :content,  null: false
+      t.integer    :likes_count
       t.references :user,     null: false, foreign_key: true
       t.timestamps
     end

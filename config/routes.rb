@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: "ideas#index"
-  resources :ideas
+  resources :ideas do
+    resources :likes, only: [:create, :destroy]
+  end
+
 end

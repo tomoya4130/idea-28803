@@ -1,7 +1,7 @@
 class IdeasController < ApplicationController
   before_action :login_check, only: :new
   def index
-    @ranks = Idea.all.limit(3)
+    @ranks = Idea.order('likes_count DESC').limit(3)
     @novelties = Idea.order('created_at DESC').limit(3)
   end
 
@@ -20,6 +20,7 @@ class IdeasController < ApplicationController
 
   def show
     @idea = Idea.find(params[:id])
+    @likes_count = Like.where(idea_id: @idea.id).count
   end
 
   def edit
