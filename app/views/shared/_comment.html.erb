@@ -1,0 +1,11 @@
+<%= form_with model: @comment, local: true do |f| %>
+  <%= f.text_field :message %>
+  <%= f.submit '送信'%>
+<% end %>
+<div id='comments'>
+<% if @comments %>
+  <% @comments.each do |comment| %>
+    <p><%= comment.message %></p>
+  <% end %>
+<% end %>
+</div>
