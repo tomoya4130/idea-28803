@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root to: "ideas#index"
   resources :ideas do
     resources :likes, only: [:create, :destroy]
+    resources :comments, only: :create
   end
 
 end

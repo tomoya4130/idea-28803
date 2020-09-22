@@ -1,10 +1,11 @@
 <% if Like.find_by(user_id: current_user.id, idea_id: @idea.id) %>
     <%= link_to (idea_like_path(@idea.id)), method: :delete, id: "like-button", remote: true do %>
       <span class="fa fa-heart like-btn-unlike"></span>
+      <%= @likes_count %>
     <% end %>
 <% else %>
     <%= link_to (idea_likes_path(@idea.id)), method: :post, id: "like-button", remote: true do %>
       <span class="fa fa-heart like-btn"></span>
+      <%= @likes_count %>
     <% end %>
 <% end %>
-<%= @likes_count %>
