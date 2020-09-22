@@ -29,7 +29,7 @@
       <div class="list-card-wapper">
           <% @ranks.each do |rank| %>
             <article class="list-card">
-            <%= link_to (idea_path(rank.id)) do %>
+            <%= link_to (idea_path(rank.id)), class:"no-underline" do %>
                 <%= image_tag rank.image, class: "list-pict" if rank.image.attached? %>
                 <div class="card-info">
                   <%= rank.title %>
@@ -81,7 +81,7 @@
       <div class="list-card-wapper">
         <% @novelties.each do |novelty| %>
           <article class="list-card">
-          <%= link_to (idea_path(novelty.id)) do %>
+          <%= link_to (idea_path(novelty.id)), class:"no-underline" do %>
             <%= image_tag novelty.image, class: "list-pict" if novelty.image.attached? %>
             <div class="card-info">
               <%= novelty.title %>

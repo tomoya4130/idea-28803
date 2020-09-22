@@ -22,8 +22,8 @@ class IdeasController < ApplicationController
   def show
     @idea = Idea.find(params[:id])
     @likes_count = Like.where(idea_id: @idea.id).count
-    @comments = Comment.order('created_at DESC').where(idea_id: @idea.id)
     @comment = Comment.new
+    @comments = @idea.comments.includes(:user).order('created_at DESC')
   end
 
   def edit
