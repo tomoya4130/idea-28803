@@ -25,7 +25,16 @@
     <div class="idea-content">
       <%= @idea.content %>
     </div>
-    <%= render 'shared/like', locals: { idea: @idea } %>
-    <%= render 'shared/comment', locals: {idea: @idea } %>
+    <%= render 'shared/like', locals: { idea: @idea, like: @like } %>
+      <p>
+        <a class="btn btn-info" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+            もっと見る...
+        </a>
+      </p>
+    <%= render 'shared/comment', locals: {idea: @idea, comment: @comment, comments: @comments } %>
   </div>
 </div>
+
+<footer>
+  attached
+</footer>

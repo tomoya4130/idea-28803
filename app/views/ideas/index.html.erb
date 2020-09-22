@@ -8,7 +8,7 @@
           <li><%= link_to current_user.nickname, "#", class: "header-nav-list-item" %></li>
           <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "header-nav-list-item" %></li>
         <% else %>
-          <li><%= link_to 'ログイン', new_user_session_path, class: "header-nav-list-item" %></li>
+          <li><%= link_to 'ログイン', new_user_session_path, class: "header-nav-list-item " %></li>
           <li><%= link_to '新規登録', new_user_registration_path, class: "header-nav-list-item" %></li>
         <% end %>
       </ul>
@@ -38,7 +38,7 @@
             </article>
           <% end %>
       </div>
-      <a href="#" class="btn">全て表示する</a>
+      <a href="#" class="btn btn-info">全て表示する</a>
     </div>
   </section>
 <% else %>
@@ -67,7 +67,7 @@
           </div>
         </article>
       </div>
-      <a href="#" class="btn">全て表示する</a>
+      <a href="#" class="btn btn-info">全て表示する</a>
     </div>
   </section>
 <% end %>
@@ -90,7 +90,7 @@
           </article>
         <% end %>
       </div>
-      <a href="#" class="btn">全て表示する</a>
+        <a href="#" class="btn btn-info ">全て表示する</a>
     </div>
   </section>
 <% else %>
@@ -119,7 +119,7 @@
           </div>
         </article>
       </div>
-      <a href="#" class="btn">全て表示する</a>
+      <a href="#" class="btn btn-info">全て表示する</a>
     </div>
   </section>
 <% end %>

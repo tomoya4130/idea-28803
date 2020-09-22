@@ -1,11 +1,22 @@
-<%= form_with model: @comment, local: true do |f| %>
+<%= form_with model: [@idea,@comment] do |f| %>
   <%= f.text_field :message %>
   <%= f.submit '送信'%>
 <% end %>
 <div id='comments'>
 <% if @comments %>
-  <% @comments.each do |comment| %>
-    <p><%= comment.message %></p>
+  <% @comments.first(2).each do |comment| %>
+    <p>
+      <strong><%= link_to comment.user.nickname, "/users/#{comment.user_id}" %>：</strong>
+      <%= comment.message %>
+    </p>
   <% end %>
+  <div class="collapse" id="collapseExample">
+      <% @comments.offset(2).each do |comment| %>
+        <p>
+          <strong><%= link_to comment.user.nickname, "/users/#{comment.user_id}" %>：</strong>
+          <%= comment.message %>
+        </p> 
+      <% end %> 
+  </div> 
 <% end %>
 </div>
