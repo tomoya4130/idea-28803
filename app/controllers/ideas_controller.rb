@@ -1,5 +1,5 @@
 class IdeasController < ApplicationController
-  before_action :login_check, only: :new
+  before_action :login_check, except: [:index, :show, :search]
 
   def index
     @ranks = Idea.includes(:user).order('likes_count DESC')
@@ -46,6 +46,10 @@ class IdeasController < ApplicationController
     else
       render :show
     end
+  end
+
+  def search
+    @ranks = Idea.search(params[:keyword])
   end
 
   private
