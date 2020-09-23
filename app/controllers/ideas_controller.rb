@@ -1,9 +1,9 @@
 class IdeasController < ApplicationController
-  before_action :login_check, only: [:new, :show]
+  before_action :login_check, only: :new
 
   def index
-    @ranks = Idea.order('likes_count DESC').limit(3)
-    @novelties = Idea.order('created_at DESC').limit(3)
+    @ranks = Idea.includes(:user).order('likes_count DESC')
+    @novelties = Idea.includes(:user).order('created_at DESC')
   end
 
   def new

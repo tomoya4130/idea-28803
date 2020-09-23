@@ -27,10 +27,14 @@
       ランキング
       </h2>
       <div class="list-card-wapper">
-          <% @ranks.each do |rank| %>
+          <% @ranks.first(3).each do |rank| %>
             <article class="list-card">
             <%= link_to (idea_path(rank.id)), class:"no-underline" do %>
-                <%= image_tag rank.image, class: "list-pict" if rank.image.attached? %>
+              <% if rank.image.attached? %>
+                <%= image_tag rank.image, class: "list-pict" %>
+              <% else %>
+                <%= image_tag "l_e_others_501.png", class:"list-pict" %>
+              <% end %>
                 <div class="card-info">
                   <%= rank.title %>
                 </div>
@@ -48,24 +52,14 @@
       ランキング
       </h2>
       <div class="list-card-wapper">
-        <article class="list-card">
-          <%= image_tag "IMG_1170.jpeg", class:"list-pict" %>
-          <div class="card-info">
-            <h3>題名</h3>
-          </div>
-        </article>
-        <article class="list-card">
-          <%= image_tag "IMG_1170.jpeg", class:"list-pict" %>
-          <div class="card-info">
-            <h3>題名</h3>
-          </div>
-        </article>
-        <article class="list-card">
-          <%= image_tag "IMG_1170.jpeg", class:"list-pict" %>
-          <div class="card-info">
-            <h3>題名</h3>
-          </div>
-        </article>
+        <% 3.times do |i| %>
+          <article class="list-card">
+            <%= image_tag "IMG_1170.jpeg", class:"list-pict" %>
+            <div class="card-info">
+              <h3>題名</h3>
+            </div>
+          </article>
+        <% end %>
       </div>
       <a href="#" class="btn btn-info">全て表示する</a>
     </div>
@@ -79,10 +73,14 @@
       新着
       </h2>
       <div class="list-card-wapper">
-        <% @novelties.each do |novelty| %>
+        <% @novelties.first(3).each do |novelty| %>
           <article class="list-card">
           <%= link_to (idea_path(novelty.id)), class:"no-underline" do %>
-            <%= image_tag novelty.image, class: "list-pict" if novelty.image.attached? %>
+            <% if novelty.image.attached? %>
+              <%= image_tag novelty.image, class: "list-pict" %>
+            <% else %>
+              <%= image_tag "l_e_others_501.png", class:"list-pict" %>
+            <% end %>
             <div class="card-info">
               <%= novelty.title %>
             </div>
@@ -100,24 +98,14 @@
       新着
       </h2>
       <div class="list-card-wapper">
-        <article class="list-card">
-          <%= image_tag "IMG_1170.jpeg", class:"list-pict" %>
-          <div class="card-info">
-            <h3>題名</h3>
-          </div>
-        </article>
-        <article class="list-card">
-          <%= image_tag "IMG_1170.jpeg", class:"list-pict" %>
-          <div class="card-info">
-            <h3>題名</h3>
-          </div>
-        </article>
-        <article class="list-card">
-          <%= image_tag "IMG_1170.jpeg", class:"list-pict" %>
-          <div class="card-info">
-            <h3>題名</h3>
-          </div>
-        </article>
+        <% 3.times do |i| %>
+          <article class="list-card">
+            <%= image_tag "IMG_1170.jpeg", class:"list-pict" %>
+            <div class="card-info">
+              <h3>題名</h3>
+            </div>
+          </article>
+        <% end %>
       </div>
       <a href="#" class="btn btn-info">全て表示する</a>
     </div>
