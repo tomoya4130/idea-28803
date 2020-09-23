@@ -1,0 +1,23 @@
+  <section class="lists">
+    <div class="list-inner">
+      <h2 class="list-ttl">
+      新着
+      </h2>
+      <div class="list-card-wapper">
+        <% @novelties.each do |novelty| %>
+          <article class="list-card">
+          <%= link_to (idea_path(novelty.id)), class:"no-underline" do %>
+            <% if novelty.image.attached? %>
+              <%= image_tag novelty.image, class: "list-pict" %>
+            <% else %>
+              <%= image_tag "l_e_others_501.png", class:"list-pict" %>
+            <% end %>
+            <div class="card-info">
+              <%= novelty.title %>
+            </div>
+          <% end %>
+          </article>
+        <% end %>
+      </div>
+    </div>
+  </section>

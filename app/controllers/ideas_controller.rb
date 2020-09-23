@@ -52,6 +52,14 @@ class IdeasController < ApplicationController
     @ranks = Idea.search(params[:keyword])
   end
 
+  def rank
+    @ranks = Idea.includes(:user).order('likes_count DESC')
+  end
+
+  def novelty
+    @novelties = Idea.includes(:user).order('created_at DESC')
+  end
+
   private
 
   def idea_params
