@@ -9,6 +9,15 @@ class Idea < ApplicationRecord
   def like_user(user_id)
    likes.find_by(user_id: user_id)
   end
+
+  #検索の処理
+  def self.search(search)
+    if search != ""
+      Idea.where('content LIKE(?)', "%#{search}%")
+    else
+      Idea.all
+    end
+  end
   
   has_one_attached :image
 

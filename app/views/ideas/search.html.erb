@@ -1,0 +1,20 @@
+<%= form_with(url: search_ideas_path, local: true, method: :get, class: "search-form") do |form| %>
+  <%= form.text_field :keyword, placeholder: "投稿を検索する", class: "search-input" %>
+  <%= form.submit "検索", class: "search-btn" %>
+<% end %>
+<div class="contents row">
+  <% @ranks.each do |rank| %>
+    <article class="list-card">
+      <%= link_to (idea_path(rank.id)), class:"no-underline" do %>
+        <% if rank.image.attached? %>
+          <%= image_tag rank.image, class: "list-pict" %>
+        <% else %>
+          <%= image_tag "l_e_others_501.png", class:"list-pict" %>
+        <% end %>
+        <div class="card-info">
+          <%= rank.title %>
+        </div>
+      <% end %>
+    </article>
+  <% end %>
+</div>
