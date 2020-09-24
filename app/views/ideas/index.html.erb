@@ -1,6 +1,10 @@
 <header>
   <div class="header-inner">
     <h1>アプリ名</h1>
+    <%= form_with(url: search_ideas_path, local: true, method: :get, class: "search-form") do |form| %>
+      <%= form.text_field :keyword, placeholder: "投稿を検索する", class: "search-input" %>
+      <%= form.submit "検索", class: "search-btn" %>
+    <% end %>
     <nav class="header-nav">
       <ul class="header-nav-list">
         <li><%= link_to '投稿', new_idea_path, class: "header-nav-list-item" %></li>
@@ -19,99 +23,98 @@
 <div class="mv">
   <h2>自分の知識を<br>共有しよう！</h2>
 </div>
-
-<%= form_with(url: search_ideas_path, local: true, method: :get, class: "search-form") do |form| %>
-  <%= form.text_field :keyword, placeholder: "投稿を検索する", class: "search-input" %>
-  <%= form.submit "検索", class: "search-btn" %>
-<% end %>
-
-<% if @ranks.length > 0 %>
-  <section class="lists">
-    <div class="list-inner">
-      <h2 class="list-ttl">
-      ランキング
-      </h2>
-      <div class="list-card-wapper">
-          <% @ranks.first(3).each.with_index(1) do |rank, i| %>
+<div class="ideas-main">
+  <% if @ranks.length > 0 %>
+    <section class="lists">
+      <div class="list-inner">
+        <h2 class="list-ttl">
+        ランキング
+        </h2>
+        <div class="list-card-wapper">
+            <% @ranks.first(3).each.with_index(1) do |rank, i| %>
+              <article class="list-card">
+              <%= "第#{i}位"%>
+              <%= link_to (idea_path(rank.id)), class:"no-underline" do %>
+                <% if rank.image.attached? %>
+                  <%= image_tag rank.image, class: "list-pict" %>
+                <% else %>
+                  <%= image_tag "l_e_others_501.png", class:"list-pict" %>
+                <% end %>
+                  <div class="card-info">
+                    <%= rank.title %>
+                  </div>
+              <% end %>
+              </article>
+            <% end %>
+        </div>
+        <%= link_to "全て表示する", rank_ideas_path, class:"btn btn-info" %>
+      </div>
+    </section>
+  <% else %>
+    <section>
+      <div class="list-inner">
+        <h2 class="list-ttl">
+        ランキング
+        </h2>
+        <div class="list-card-wapper">
+          <% 3.times do |i| %>
             <article class="list-card">
-            <%= "第#{i}位"%>
-            <%= link_to (idea_path(rank.id)), class:"no-underline" do %>
-              <% if rank.image.attached? %>
-                <%= image_tag rank.image, class: "list-pict" %>
+              <%= image_tag "IMG_1170.jpeg", class:"list-pict" %>
+              <div class="card-info">
+                <h3>題名</h3>
+              </div>
+            </article>
+          <% end %>
+        </div>
+      </div>
+    </section>
+  <% end %>
+
+  <% if @novelties.length > 0 %>
+    <section class="lists">
+      <div class="list-inner">
+        <h2 class="list-ttl">
+        新着
+        </h2>
+        <div class="list-card-wapper">
+          <% @novelties.first(3).each do |novelty| %>
+            <article class="list-card">
+            <%= link_to (idea_path(novelty.id)), class:"no-underline" do %>
+              <% if novelty.image.attached? %>
+                <%= image_tag novelty.image, class: "list-pict" %>
               <% else %>
                 <%= image_tag "l_e_others_501.png", class:"list-pict" %>
               <% end %>
-                <div class="card-info">
-                  <%= rank.title %>
-                </div>
+              <div class="card-info">
+                <%= novelty.title %>
+              </div>
             <% end %>
             </article>
           <% end %>
+        </div>
+        <%= link_to "全て表示する", novelty_ideas_path, class:"btn btn-info" %>
       </div>
-      <%= link_to "全て表示する", rank_ideas_path, class:"btn btn-info" %>
-    </div>
-  </section>
-<% else %>
-  <section>
-    <div class="list-inner">
-      <h2 class="list-ttl">
-      ランキング
-      </h2>
-      <div class="list-card-wapper">
-        <% 3.times do |i| %>
-          <article class="list-card">
-            <%= image_tag "IMG_1170.jpeg", class:"list-pict" %>
-            <div class="card-info">
-              <h3>題名</h3>
-            </div>
-          </article>
-        <% end %>
-      </div>
-    </div>
-  </section>
-<% end %>
-
-<% if @novelties.length > 0 %>
-  <section class="lists">
-    <div class="list-inner">
-      <h2 class="list-ttl">
-      新着
-      </h2>
-      <div class="list-card-wapper">
-        <% @novelties.first(3).each do |novelty| %>
-          <article class="list-card">
-          <%= link_to (idea_path(novelty.id)), class:"no-underline" do %>
-            <% if novelty.image.attached? %>
-              <%= image_tag novelty.image, class: "list-pict" %>
-            <% else %>
-              <%= image_tag "l_e_others_501.png", class:"list-pict" %>
-            <% end %>
-            <div class="card-info">
-              <%= novelty.title %>
-            </div>
+    </section>
+  <% else %>
+    <section>
+      <div class="list-inner">
+        <h2 class="list-ttl">
+        新着
+        </h2>
+        <div class="list-card-wapper">
+          <% 3.times do |i| %>
+            <article class="list-card">
+              <%= image_tag "IMG_1170.jpeg", class:"list-pict" %>
+              <div class="card-info">
+                <h3>題名</h3>
+              </div>
+            </article>
           <% end %>
-          </article>
-        <% end %>
+        </div>
       </div>
-      <%= link_to "全て表示する", novelty_ideas_path, class:"btn btn-info" %>
-    </div>
-  </section>
-<% else %>
-  <section>
-    <div class="list-inner">
-      <h2 class="list-ttl">
-      新着
-      </h2>
-      <div class="list-card-wapper">
-        <% 3.times do |i| %>
-          <article class="list-card">
-            <%= image_tag "IMG_1170.jpeg", class:"list-pict" %>
-            <div class="card-info">
-              <h3>題名</h3>
-            </div>
-          </article>
-        <% end %>
-      </div>
-    </div>
-  </section>
-<% end %>
+    </section>
+  <% end %>
+</div>
+<footer>
+  <small>© 2018 corpname inc.</small>
+</footer>

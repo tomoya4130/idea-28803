@@ -3,6 +3,19 @@
   line-height: 1.5;
 }
 
+ul {
+  list-style: none;
+}
+
+.search-form {
+  width: 50%;
+  display: flex;
+}
+
+.search-btn {
+  width: 25%;
+}
+
 /* headerのcss */
 img {
   max-width: 100%;
@@ -29,6 +42,10 @@ h1 {
   font-weight: bold;
 }
 
+h1 a {
+  text-decoration: none;
+}
+
 .header-nav-list {
   display: flex;
 }
@@ -41,13 +58,14 @@ h1 {
 
 /* footer */
 footer {
-  height: 100px;
-  background-color: #BA0202;
+  height: 20%;
+  background-color: #f5f5f5;
+  padding:30px;
 }
 /* footer */
 .mv {
   height: 460px;
-  background-image: image-url('IMG_1165.jpeg');
+  background-color: rgba(0, 0, 0, 0.9);
   background-size: cover;
   background-position: center;
   position: relative;
@@ -65,6 +83,9 @@ footer {
   text-shadow: 0 0 5px rgba(0, 0, 0, 0.9);
 }
 
+.lists {
+  background-color: white;
+}
 .list-inner {
   max-width: 980px;
   margin-left: auto;
