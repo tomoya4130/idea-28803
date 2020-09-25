@@ -1,7 +1,8 @@
+<%= render "shared/second_header" %>
 
 <%= form_with model: @idea, class: "ideas-main", local: true do |f| %> 
     <div class="ideas-sell-main">
-      <h2 class="ideas-sell-title">投稿する</h2>
+      <h2 class="ideas-sell-title">編集</h2>
       
       <%# エラーメッセージの表示%>
       <%= render 'shared/error_messages', model: f.object %>
@@ -15,7 +16,10 @@
           <p>
             クリックしてファイルをアップロード
           </p>
-          <%= f.file_field :image, id:"idea-image" %>
+          <label> 
+            <span class="far fa-file-image fa-4x fa-fw"></span>
+            <%= f.file_field :image, id:"item-image", class:"item-image" %>
+          </label>
         </div>
       </div>
       <%# /画像投稿 %>
@@ -56,3 +60,5 @@
       <%# /下部ボタン %>
     </div>
 <% end %>
+
+<%= render "shared/footer" %>

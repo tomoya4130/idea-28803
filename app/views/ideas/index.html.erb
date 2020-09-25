@@ -1,24 +1,4 @@
-<header>
-  <div class="header-inner">
-    <h1>アプリ名</h1>
-    <%= form_with(url: search_ideas_path, local: true, method: :get, class: "search-form") do |form| %>
-      <%= form.text_field :keyword, placeholder: "投稿を検索する", class: "search-input" %>
-      <%= form.submit "検索", class: "search-btn" %>
-    <% end %>
-    <nav class="header-nav">
-      <ul class="header-nav-list">
-        <li><%= link_to '投稿', new_idea_path, class: "header-nav-list-item" %></li>
-        <% if user_signed_in? %>
-          <li><%= link_to current_user.nickname, "#", class: "header-nav-list-item" %></li>
-          <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "header-nav-list-item" %></li>
-        <% else %>
-          <li><%= link_to 'ログイン', new_user_session_path, class: "header-nav-list-item " %></li>
-          <li><%= link_to '新規登録', new_user_registration_path, class: "header-nav-list-item" %></li>
-        <% end %>
-      </ul>
-    </nav>
-  </div>
-</header>
+<%= render "shared/header" %>
 
 <div class="mv">
   <h2>自分の知識を<br>共有しよう！</h2>
@@ -40,6 +20,7 @@
                 <% else %>
                   <%= image_tag "l_e_others_501.png", class:"list-pict" %>
                 <% end %>
+                  <span class="writers">投稿者 </span><%= link_to rank.user.nickname, "/users/#{current_user.id}", class:"writer" %>
                   <div class="card-info">
                     <%= rank.title %>
                   </div>
@@ -85,6 +66,7 @@
               <% else %>
                 <%= image_tag "l_e_others_501.png", class:"list-pict" %>
               <% end %>
+              <span class="writers">投稿者 </span><%= link_to novelty.user.nickname, "/users/#{current_user.id}", class:"writer" %>
               <div class="card-info">
                 <%= novelty.title %>
               </div>
@@ -115,6 +97,4 @@
     </section>
   <% end %>
 </div>
-<footer>
-  <small>© 2018 corpname inc.</small>
-</footer>
+<%= render "shared/footer" %>

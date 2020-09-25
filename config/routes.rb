@@ -10,5 +10,6 @@ Rails.application.routes.draw do
       get 'novelty'
     end
   end
+  resources :users, only: :show
 
 end

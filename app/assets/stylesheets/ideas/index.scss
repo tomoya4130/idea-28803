@@ -24,6 +24,7 @@ img {
 
 header {
   height: 80px;
+  background-color:#000000;
 }
 
 .header-inner {
@@ -33,8 +34,7 @@ header {
   padding: 0 20px;
   height: 100%;
   max-width: 980px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
 }
 
 h1 {
@@ -44,28 +44,69 @@ h1 {
 
 h1 a {
   text-decoration: none;
+  color: #ffffff;
 }
+
+.writers {
+  padding-left: 10px;
+}
+
+.writer {
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.writer:hover {
+  opacity: 0.8;
+}
+
 
 .header-nav-list {
   display: flex;
+  
 }
 
 .header-nav-list-item {
   text-decoration: none;
-  padding: 0 5px;
+  padding: 6px;
+  margin-right: 1em;
+  font-weight: bold;
+  color: #ffffff;
 }
-/* headerのcss */
+
+.header-nav-list-item:hover {
+  opacity: 0.8;
+  color: rgb(233, 152, 3);
+}
+
+.search-btn {
+  display: none;
+}
+
+.fa-search {
+  margin-top: 3px;
+}
+
+.fa-search:hover {
+  opacity: 0.8;
+}
 
 /* footer */
 footer {
   height: 20%;
   background-color: #f5f5f5;
   padding:30px;
+  text-align: center;
 }
+
+small {
+  color: #9b9797;
+}
+
 /* footer */
 .mv {
   height: 460px;
-  background-color: rgba(0, 0, 0, 0.9);
+  background-image: image-url('3802300_s.jpg');
   background-size: cover;
   background-position: center;
   position: relative;
@@ -84,12 +125,12 @@ footer {
 }
 
 .lists {
-  background-color: white;
+  background-color: #ffffff;
 }
+
 .list-inner {
   max-width: 980px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
   padding: 77px 20px 48px;
 }
 
@@ -102,6 +143,7 @@ footer {
 
 .list-card-wapper {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   margin-bottom: 80px;
 }
@@ -110,6 +152,8 @@ footer {
   width: 32%;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
   position: relative;
+  margin-bottom: 80px;
+  border-radius: 5px;
 }
 
 .list-pict {
@@ -128,7 +172,8 @@ footer {
   width: 250px;
   padding: 15px 0;
   color: #ffffff;
-  background-color: #b5cd60;
+  background-color: rgb(233, 152, 3);
+  border: 1px solid rgb(233, 152, 3);
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
   font-size: 18px;
   font-weight: bold;

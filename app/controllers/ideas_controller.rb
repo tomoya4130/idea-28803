@@ -1,5 +1,5 @@
 class IdeasController < ApplicationController
-  before_action :login_check, except: [:index, :show, :search]
+  before_action :login_check, except: [:index, :show, :search, :rank, :novelty]
 
   def index
     @ranks = Idea.includes(:user).order('likes_count DESC')
