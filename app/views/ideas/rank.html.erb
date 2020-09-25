@@ -1,24 +1,32 @@
-  <section class="lists">
-    <div class="list-inner">
-      <h2 class="list-ttl">
-      ランキング
-      </h2>
-      <div class="list-card-wapper">
-          <% @ranks.each.with_index(1) do |rank, i| %>
-            <article class="list-card">
-            <%= "第#{i}位"%>
-            <%= link_to (idea_path(rank.id)), class:"no-underline" do %>
-              <% if rank.image.attached? %>
-                <%= image_tag rank.image, class: "list-pict" %>
-              <% else %>
-                <%= image_tag "l_e_others_501.png", class:"list-pict" %>
+<%= render "shared/header" %>
+
+<div class="show">
+  <div class="idea-show">
+    <section class="lists">
+      <div class="list-inner">
+        <h2 class="list-ttl">
+        ランキング
+        </h2>
+        <div class="list-card-wapper">
+            <% @ranks.each.with_index(1) do |rank, i| %>
+              <article class="list-card">
+              <%= "第#{i}位"%>
+              <%= link_to (idea_path(rank.id)), class:"no-underline" do %>
+                <% if rank.image.attached? %>
+                  <%= image_tag rank.image, class: "list-pict" %>
+                <% else %>
+                  <%= image_tag "l_e_others_501.png", class:"list-pict" %>
+                <% end %>
+                  <span class="writers">投稿者 </span><%= link_to rank.user.nickname, "/users/#{current_user.id}", class:"writer" %>
+                  <div class="card-info">
+                    <%= rank.title %>
+                  </div>
               <% end %>
-                <div class="card-info">
-                  <%= rank.title %>
-                </div>
+              </article>
             <% end %>
-            </article>
-          <% end %>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </div>
+</div>
+<%= render "shared/footer" %>

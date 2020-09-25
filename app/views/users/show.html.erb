@@ -2,19 +2,20 @@
 
 <div class="show">
   <div class="idea-show">
+  <p class="my-page"><%= @nickname %>のマイページ</p>
     <section class="lists">
       <div class="list-inner">
         <div class="list-card-wapper">
-          <% @ranks.each do |rank| %>
+          <% @ideas.each do |idea| %>
             <article class="list-card">
-              <%= link_to (idea_path(rank.id)), class:"no-underline" do %>
-                <% if rank.image.attached? %>
-                  <%= image_tag rank.image, class: "list-pict" %>
+              <%= link_to (idea_path(idea.id)), class:"no-underline" do %>
+                <% if idea.image.attached? %>
+                  <%= image_tag idea.image, class: "list-pict" %>
                 <% else %>
                   <%= image_tag "l_e_others_501.png", class:"list-pict" %>
                 <% end %>
                 <div class="card-info">
-                  <%= rank.title %>
+                  <%= idea.title %>
                 </div>
               <% end %>
             </article>

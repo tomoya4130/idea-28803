@@ -20,42 +20,46 @@
       </h1>
     </div>
     <div class="idea-img">
-      <%= image_tag @idea.image, class: "idea-image" if @idea.image.attached? %>
+      <% if @idea.image.attached? %>
+        <%= image_tag @idea.image, class: "list-pict" %>
+      <% else %>
+        <%= image_tag "l_e_others_501.png", class:"list-pict" %>
+      <% end %>
     </div> 
     <div class="idea-content">
-      <%= @idea.content %>
+      <span><%= @idea.content %></span>
     </div>
     
     <%# いいねの呼び出し%>
     <%= render 'shared/like', locals: { idea: @idea, like: @like } %>
     
     <%# コメント機能 %>
-    <div class="input_wrap">
-      <% if current_user %>
-        <%= form_with(model: [@idea, @comment], local: true) do |form| %>
-          <%= form.text_area :message, placeholder: "コメントする", rows: "2" %>
-          <%= form.submit "送信" , class:"comment_btn"%>
-        <% end %>
-      <% else %>
-        <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
-      <% end %>
-    </div>
-    <div class="container">
-      <div class="comments">
-        <h4>＜コメント一覧＞</h4>
-        <% if @comments %>
-          <% @comments.each do |comment| %>
-            <p>
-              <strong><%= link_to comment.user.nickname, "/users/#{comment.user_id}", class: "no-underline" %>：</strong>
-              <%= comment.message %>
-            </p>
+    <div class="comment_main">
+      <div class="input_wrap">
+        <% if current_user %>
+          <%= form_with(model: [@idea, @comment], local: true) do |form| %>
+            <%= form.text_area :message, placeholder: "コメントする", rows: "2" %>
+            <%= form.submit "送信" , class:"comment_btn"%>
           <% end %>
+        <% else %>
+          <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
         <% end %>
+      </div>
+      <div class="container">
+        <div class="comments">
+          <h4>＜コメント一覧＞</h4>
+          <% if @comments %>
+            <% @comments.each do |comment| %>
+              <p>
+                <strong><%= link_to comment.user.nickname, "/users/#{comment.user_id}", class: "no-underline" %>：</strong>
+                <%= comment.message %>
+              </p>
+            <% end %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
 </div>
 
-<footer>
-  attached
-</footer>
+<%= render "shared/footer" %>
