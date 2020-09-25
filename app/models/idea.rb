@@ -13,7 +13,7 @@ class Idea < ApplicationRecord
   #検索の処理
   def self.search(search)
     if search != ""
-      Idea.where('content LIKE(?)', "%#{search}%")
+      Idea.where('title LIKE(?)', "%#{search}%")
     else
       Idea.all
     end

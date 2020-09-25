@@ -5,7 +5,7 @@ class Genre < ActiveHash::Base
     { id: 3, name: 'ゲーム'},
     { id: 4, name: 'スポーツ'},
     { id: 5, name: '本'},
-    { id: 6, name: '映画'}
-    { id: 7, name: 'その他'}
+    { id: 6, name: '映画'},
+    { id: 7, name: 'その他'},
   ]
 end
